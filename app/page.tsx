@@ -17,8 +17,8 @@ export default function Home() {
             <Calculator className="h-6 w-6" />
             <span className="text-xl font-bold">Pasal Akaun</span>
           </div>
-          <div className="text-xs text-muted-foreground">
-            build with 🧮 by{" "}
+          <div className="text-[9px] sm:text-xs text-muted-foreground text-right">
+            build with 🧮 by
             <span>
               <Link
                 href="https://github.com/amirahnasihah"
