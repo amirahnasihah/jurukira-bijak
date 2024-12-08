@@ -18,7 +18,7 @@ export default function Home() {
             <span className="text-xl font-bold">Pasal Akaun</span>
           </div>
           <div className="text-[9px] sm:text-xs text-muted-foreground text-right">
-            build with 🧮 by
+            build with 🧮 by{" "}
             <span>
               <Link
                 href="https://github.com/amirahnasihah"
