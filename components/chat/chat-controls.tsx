@@ -1,37 +1,41 @@
 "use client";
 
-import { Save, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Trash2, Download } from "lucide-react";
+import { clearMessages } from "@/lib/storage";
 import { toast } from "sonner";
 
 interface ChatControlsProps {
   onClear: () => void;
-  onDownload: () => void;
+  onDownload?: () => void;
 }
 
 export function ChatControls({ onClear, onDownload }: ChatControlsProps) {
+  const handleClear = () => {
+    clearMessages();
+    onClear();
+    toast.success("Chat history cleared");
+  };
+
   return (
-    <div className="flex justify-end gap-2">
+    <div className="flex justify-end space-x-2 mb-4">
+      {onDownload && (
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={onDownload}
+          title="Download chat history"
+        >
+          <Download className="h-4 w-4" />
+        </Button>
+      )}
       <Button
         variant="outline"
-        size="sm"
-        onClick={onDownload}
-        className="flex items-center gap-2"
-      >
-        <Save className="h-4 w-4" />
-        Download History
-      </Button>
-      <Button
-        variant="outline"
-        size="sm"
-        onClick={() => {
-          onClear();
-          toast.success("Chat history cleared");
-        }}
-        className="flex items-center gap-2"
+        size="icon"
+        onClick={handleClear}
+        title="Clear chat history"
       >
         <Trash2 className="h-4 w-4" />
-        Clear History
       </Button>
     </div>
   );

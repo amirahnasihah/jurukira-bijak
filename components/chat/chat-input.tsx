@@ -11,9 +11,14 @@ interface ChatInputProps {
   isLoading: boolean;
 }
 
-export function ChatInput({ value, onChange, onSubmit, isLoading }: ChatInputProps) {
+export function ChatInput({
+  value,
+  onChange,
+  onSubmit,
+  isLoading,
+}: ChatInputProps) {
   return (
-    <form onSubmit={onSubmit} className="flex gap-2">
+    <form onSubmit={onSubmit} className="flex gap-2 pb-4">
       <Textarea
         placeholder="Ask about bookkeeping, tax planning, or financial analysis..."
         value={value}

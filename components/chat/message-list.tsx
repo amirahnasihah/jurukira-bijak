@@ -6,15 +6,16 @@ import type { ChatMessage } from "@/lib/storage";
 
 interface MessageListProps {
   messages: ChatMessage[];
-  isLoading?: boolean;
+  isLoading: boolean;
+  onTopicSelect?: (topic: string) => void;
 }
 
-export function MessageList({ messages, isLoading }: MessageListProps) {
+export function MessageList({ messages, isLoading, onTopicSelect }: MessageListProps) {
   return (
-    <ScrollArea className="h-full pr-4">
-      <div className="space-y-4">
+    <ScrollArea className="h-[calc(100vh-200px)] pr-4">
+      <div className="flex flex-col space-y-4 py-4">
         {messages.map((message, index) => (
-          <Message key={index} message={message} />
+          <Message key={index} message={message} onTopicSelect={onTopicSelect} />
         ))}
         {isLoading && (
           <div className="flex justify-start">

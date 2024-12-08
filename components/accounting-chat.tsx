@@ -22,8 +22,10 @@ export function AccountingChat() {
 
   useEffect(() => {
     const savedMessages = loadMessages();
-    if (savedMessages?.length > 0) {
+    if (savedMessages.length > 0) {
       setMessages(savedMessages);
+    } else {
+      setMessages([INITIAL_MESSAGE]);
     }
   }, []);
 
@@ -66,7 +68,7 @@ export function AccountingChat() {
     }
   };
 
-  const clearHistory = () => {
+  const handleClear = () => {
     setMessages([INITIAL_MESSAGE]);
     saveMessages([INITIAL_MESSAGE]);
   };
@@ -90,10 +92,13 @@ export function AccountingChat() {
 
   return (
     <div className="flex h-[calc(100vh-10rem)] flex-col gap-4">
-      <ChatControls onClear={clearHistory} onDownload={downloadHistory} />
-      
       <Card className="flex-1 p-4">
-        <MessageList messages={messages} isLoading={isLoading} />
+        <ChatControls onClear={handleClear} onDownload={downloadHistory} />
+        <MessageList 
+          messages={messages} 
+          isLoading={isLoading} 
+          onTopicSelect={setInput}
+        />
       </Card>
 
       <ChatInput

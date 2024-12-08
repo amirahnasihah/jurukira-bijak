@@ -143,26 +143,6 @@ export async function getGeminiResponse(
 • Action Items
 • Next Steps
 
-**References:**
-• Additional Resources
-• Further Reading
-
-**Resources & References:**
-1. Official Sources:
-   • Government Websites: [URLs with descriptions]
-   • Regulatory Bodies: [URLs with descriptions]
-   • Professional Organizations: [URLs with descriptions]
-
-2. Additional Reading:
-   • Research Papers: [URLs with citations]
-   • Industry Guidelines: [URLs with descriptions]
-   • Expert Articles: [URLs with descriptions]
-
-3. Tools & Resources:
-   • Online Tools: [URLs with descriptions]
-   • Templates: [URLs with descriptions]
-   • Software Solutions: [URLs with descriptions]
-
 User Query: ${prompt}`;
 
     // Start a chat session

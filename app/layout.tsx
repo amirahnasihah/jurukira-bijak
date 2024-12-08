@@ -5,9 +5,9 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "AccountantGPT - AI Accounting Assistant",
+  title: "Bijak Akaun - Dapatkan Jawapan Segera",
   description:
-    "Your intelligent companion for accounting, tax, and audit queries",
+    "Jurukira Bijak - Your intelligent AI companion for solving accounting, tax, and audit queries with ease.",
   icons: {
     icon: [
       {
@@ -31,7 +31,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <main className="container mx-auto px-4 sm:px-6 lg:px-8">
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
