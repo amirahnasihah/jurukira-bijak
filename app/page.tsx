@@ -6,6 +6,7 @@ import {
   Landmark,
   FileSpreadsheet,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -15,6 +16,18 @@ export default function Home() {
           <div className="flex items-center gap-2">
             <Calculator className="h-6 w-6" />
             <span className="text-xl font-bold">Pasal Akaun</span>
+          </div>
+          <div className="text-xs text-muted-foreground">
+            build with 🧮 by{" "}
+            <span>
+              <Link
+                href="https://github.com/amirahnasihah"
+                target="_blank"
+                className="underline"
+              >
+                amrhnshh
+              </Link>
+            </span>
           </div>
         </div>
       </header>
