@@ -59,10 +59,16 @@ export function Message({ message, onTopicSelect }: MessageProps) {
                 ),
                 p: ({ node, ...props }) => <p className="my-2" {...props} />,
                 ul: ({ node, ...props }) => (
-                  <ul className="list-disc list-inside my-2" {...props} />
+                  <ul
+                    className="list-disc list-inside my-2 space-y-1"
+                    {...props}
+                  />
                 ),
                 ol: ({ node, ...props }) => (
-                  <ol className="list-decimal list-inside my-2" {...props} />
+                  <ol
+                    className="list-decimal list-inside my-2 space-y-1"
+                    {...props}
+                  />
                 ),
                 li: ({ node, ...props }) => <li className="my-1" {...props} />,
                 strong: ({ node, ...props }) => (
@@ -98,12 +104,32 @@ export function Message({ message, onTopicSelect }: MessageProps) {
                     {...props}
                   />
                 ),
+                table: ({ node, ...props }) => (
+                  <div className="my-4 w-full overflow-x-auto">
+                    <table
+                      className="min-w-full divide-y divide-gray-200"
+                      {...props}
+                    />
+                  </div>
+                ),
+                thead: ({ node, ...props }) => (
+                  <thead className="bg-muted/50" {...props} />
+                ),
+                th: ({ node, ...props }) => (
+                  <th
+                    className="px-3 py-2 text-left text-sm font-semibold"
+                    {...props}
+                  />
+                ),
+                td: ({ node, ...props }) => (
+                  <td className="px-3 py-2 text-sm" {...props} />
+                ),
               }}
             >
               {message.content}
             </ReactMarkdown>
-            {message.calculation && (
-              message.calculation.type === "uitm-accounting" ? (
+            {message.calculation &&
+              (message.calculation.type === "uitm-accounting" ? (
                 <UiTMAccountingCalculation
                   title={message.calculation.title}
                   courseCode={message.calculation.courseCode!}
@@ -127,8 +153,7 @@ export function Message({ message, onTopicSelect }: MessageProps) {
                   steps={message.calculation.steps}
                   finalResult={message.calculation.finalResult}
                 />
-              )
-            )}
+              ))}
             {message.sources && message.sources.length > 0 && (
               <div className="mt-4 border-t pt-2 text-xs">
                 <div className="font-semibold mb-1">Sources:</div>
